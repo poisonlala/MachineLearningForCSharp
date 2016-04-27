@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineLearningForCSharp", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perceptron", "Perceptron\Perceptron.csproj", "{6CAB6383-2FE2-4C81-8C93-47FD2EF92934}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KNN", "KNN\KNN.csproj", "{D4CF078C-DA11-4174-9C42-2480D206C308}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6CAB6383-2FE2-4C81-8C93-47FD2EF92934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CAB6383-2FE2-4C81-8C93-47FD2EF92934}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CAB6383-2FE2-4C81-8C93-47FD2EF92934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4CF078C-DA11-4174-9C42-2480D206C308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4CF078C-DA11-4174-9C42-2480D206C308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4CF078C-DA11-4174-9C42-2480D206C308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4CF078C-DA11-4174-9C42-2480D206C308}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
