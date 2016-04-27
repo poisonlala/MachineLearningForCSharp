@@ -1,0 +1,6 @@
+c:\users\dl_lab\documents\visual studio 2015\Projects\MachineLearningForCSharp\Perceptron\bin\Debug\Perceptron.exe.config
+c:\users\dl_lab\documents\visual studio 2015\Projects\MachineLearningForCSharp\Perceptron\bin\Debug\Perceptron.exe
+c:\users\dl_lab\documents\visual studio 2015\Projects\MachineLearningForCSharp\Perceptron\bin\Debug\Perceptron.pdb
+c:\users\dl_lab\documents\visual studio 2015\Projects\MachineLearningForCSharp\Perceptron\obj\Debug\Perceptron.csprojResolveAssemblyReference.cache
+c:\users\dl_lab\documents\visual studio 2015\Projects\MachineLearningForCSharp\Perceptron\obj\Debug\Perceptron.exe
+c:\users\dl_lab\documents\visual studio 2015\Projects\MachineLearningForCSharp\Perceptron\obj\Debug\Perceptron.pdb
