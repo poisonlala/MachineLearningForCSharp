@@ -39,7 +39,11 @@ namespace KNN
             int mid = (left + right) / 2;
             Node cur = new Node(points[mid]);
             cur.Left = BuildDFS(left, mid - 1, points, (curdim + 1) % _dim);
+            if (cur.Left != null)
+                cur.Left.Parent = cur;
             cur.Right = BuildDFS(mid + 1, right, points, (curdim + 1) % _dim);
+            if (cur.Right != null)
+                cur.Right.Parent = cur;
             return cur;
         }
 
