@@ -13,6 +13,7 @@ namespace KNN
         public Node Left { get; set; }
         public Node Right { get; set; }
         public Node Parent { get; set; }
+        public int Dimension { get; set; }
         public Node(double[] n)
         {
             Val = n;

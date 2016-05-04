@@ -10,7 +10,8 @@ namespace KNN
     {
         private Node _kdRoot;
         private int _dim;
-
+        private double _minDistance;
+        private Node _closest;
         /// <summary>
         /// 构建KD树
         /// </summary>
@@ -20,7 +21,9 @@ namespace KNN
         {
             if (points.Count == 0) return false;
             _dim = points[0].Length;
-            _kdRoot = DFS(0, points.Count - 1, points, 0);
+            _kdRoot = BuildDFS(0, points.Count - 1, points, 0, null);
+            _minDistance = double.MaxValue;
+            _closest = null;
             return true;
         }
 
@@ -32,18 +35,16 @@ namespace KNN
         /// <param name="points"></param>
         /// <param name="sortindex"></param>
         /// <returns></returns>
-        private Node BuildDFS(int left, int right, List<double[]> points, int curdim)
+        private Node BuildDFS(int left, int right, List<double[]> points, int curdim, Node parent)
         {
             if (left > right) return null;
             points.Sort(left, right - left + 1, new Compare(curdim));
             int mid = (left + right) / 2;
             Node cur = new Node(points[mid]);
-            cur.Left = BuildDFS(left, mid - 1, points, (curdim + 1) % _dim);
-            if (cur.Left != null)
-                cur.Left.Parent = cur;
-            cur.Right = BuildDFS(mid + 1, right, points, (curdim + 1) % _dim);
-            if (cur.Right != null)
-                cur.Right.Parent = cur;
+            cur.Parent = parent;
+            cur.Dimension = curdim;
+            cur.Left = BuildDFS(left, mid - 1, points, (curdim + 1) % _dim, cur);
+            cur.Right = BuildDFS(mid + 1, right, points, (curdim + 1) % _dim, cur);
             return cur;
         }
 
@@ -54,27 +55,49 @@ namespace KNN
         /// <returns></returns>
         public double[] SearchClosest(double[] point)
         {
-            return SearchDFS(_kdRoot, point, 0);
+            SearchDFS(_kdRoot, point);
+            return _closest?.Val;
         }
 
-        private double[] SearchDFS(Node n, double[] point, int curdim)
+        private void SearchDFS(Node n, double[] point)
         {
-            if (n.Left == null && n.Right == null) return n.Val;
-            double[] closest = null;
-            if (n.Left != null)
-                closest = SearchDFS(n.Left, point, (curdim + 1) % _dim);
-            if (n.Right != null)
+            if (n == null) return;
+            bool isleft = false;
+            double dis = GetDistance(n.Val, point);
+            if (dis < _minDistance)
             {
-                if (closest == null)
-                    closest = SearchDFS(n.Right, point, (curdim + 1) % _dim);
-                else
-                {
-                    var rclosest = SearchDFS(n.Right, point, (curdim + 1) % _dim);
-                    if (GetDistance(rclosest, point) < GetDistance(closest, point))
-                        closest = rclosest;
-                }
+                _minDistance = dis;
+                _closest = n;
             }
 
+            if (point[n.Dimension] < n.Val[n.Dimension])
+            {
+                if (n.Left != null)
+                {
+                    isleft = true;
+                    SearchDFS(n.Left, point);
+                }
+                else
+                    return;
+            }
+            else if (point[n.Dimension] >= n.Val[n.Dimension])
+            {
+                if (n.Right != null)
+                {
+                    isleft = false;
+                    SearchDFS(n.Right, point);
+                }
+                else
+                    return;
+            }
+            if (_closest != null)
+            {
+                if (_minDistance > Math.Abs(n.Val[n.Dimension] - _closest.Val[n.Dimension]))
+                    if (isleft)
+                        SearchDFS(n.Right,point);
+                    else
+                        SearchDFS(n.Left,point);
+            }
         }
 
         private double GetDistance(double[] a, double[] b)

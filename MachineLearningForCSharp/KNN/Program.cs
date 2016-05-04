@@ -20,6 +20,8 @@ namespace KNN
 
             var knn = new KNN();
             knn.BuildKNN(points);
+            var result = knn.SearchClosest(new double[] { 2, 4.5 });
+            var result1 = knn.SearchClosest(new double[] {2.1, 3.1});
         }
     }
 }
