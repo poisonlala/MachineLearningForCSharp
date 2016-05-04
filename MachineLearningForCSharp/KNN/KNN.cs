@@ -40,25 +40,33 @@ namespace KNN
             if (left > right) return null;
             points.Sort(left, right - left + 1, new Compare(curdim));
             int mid = (left + right) / 2;
+
             Node cur = new Node(points[mid]);
             cur.Parent = parent;
             cur.Dimension = curdim;
             cur.Left = BuildDFS(left, mid - 1, points, (curdim + 1) % _dim, cur);
             cur.Right = BuildDFS(mid + 1, right, points, (curdim + 1) % _dim, cur);
+
             return cur;
         }
 
         /// <summary>
-        /// 
+        /// 外部调用
         /// </summary>
         /// <param name="point"></param>
         /// <returns></returns>
         public double[] SearchClosest(double[] point)
         {
+            _closest = null;
+            _minDistance = double.MaxValue;
             SearchDFS(_kdRoot, point);
             return _closest?.Val;
         }
-
+        /// <summary>
+        /// 递归查找
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="point"></param>
         private void SearchDFS(Node n, double[] point)
         {
             if (n == null) return;
