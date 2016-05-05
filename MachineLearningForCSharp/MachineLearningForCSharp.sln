@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perceptron", "Perceptron\Pe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KNN", "KNN\KNN.csproj", "{D4CF078C-DA11-4174-9C42-2480D206C308}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bayes", "Bayes\Bayes.csproj", "{1DCFF975-7712-4D02-8858-A6FFDF17C154}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D4CF078C-DA11-4174-9C42-2480D206C308}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4CF078C-DA11-4174-9C42-2480D206C308}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4CF078C-DA11-4174-9C42-2480D206C308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DCFF975-7712-4D02-8858-A6FFDF17C154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DCFF975-7712-4D02-8858-A6FFDF17C154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DCFF975-7712-4D02-8858-A6FFDF17C154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DCFF975-7712-4D02-8858-A6FFDF17C154}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

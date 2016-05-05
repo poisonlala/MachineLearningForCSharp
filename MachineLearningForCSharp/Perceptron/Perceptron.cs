@@ -94,7 +94,7 @@ namespace Perceptron
         /// <summary>
         /// 向量内积
         /// </summary>
-        /// <param name="coor"></param>
+        /// <param name="coor"></param> 
         /// <param name="line"></param>
         /// <param name="b"></param>
         /// <returns></returns>
