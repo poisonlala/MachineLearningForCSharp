@@ -27,6 +27,7 @@ namespace KNN
         {
             index = i;
         }
+
         int IComparer<double[]>.Compare(double[] x, double[] y)
         {
             return x[index] > y[index] ? 1 : -1;

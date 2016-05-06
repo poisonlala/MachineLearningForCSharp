@@ -12,6 +12,7 @@ namespace KNN
         private int _dim;
         private double _minDistance;
         private Node _closest;
+
         /// <summary>
         /// 构建KD树
         /// </summary>
