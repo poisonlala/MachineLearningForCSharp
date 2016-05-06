@@ -10,7 +10,7 @@ namespace Perceptron
     {
         static void Main(string[] args)
         {
-            var matrix = new double[,] { { 3, 3 }, { 4, 3 }, { 1, 1 } };
+            var matrix = new double[,] { { 3, 3 }, { 4, 3 }, { 1, 2 } };
             var answer = new bool[] { true, true, false };
             var p = new Perceptron(1);
             var canclassify = p.Classify(matrix,answer);

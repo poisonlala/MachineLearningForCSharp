@@ -15,7 +15,6 @@ namespace Perceptron
         public double[] W { get { return _w; } }
         public double B { get { return _b; } }
 
-
         public Perceptron(double learningRate)
         {
             _r = learningRate;
