@@ -28,16 +28,28 @@ namespace ExpectationMaximization
             var result = (CONSTANT / Math.Sqrt(p.Var)) * Math.Pow(Math.E, (-Math.Pow(x - p.Avr, 2) / (2 * p.Var)));
             return result;
         }
+        private void Init(IList<double> samples)
+        {
+            double min = samples.Min();
+            double max = samples.Max();
+            double derta = (max - min) / (dim + 1);
+            for(int i = 0; i < dim; i++)
+            {
+                p[i].Avr += min + derta * (i + 1);
+            }
+        }
 
         public void BuildGMM(IList<double> samples)
         {
+            Init(samples);
             count = samples.Count;
             Q = new double[count,dim];
-            int i = 100;
+            int i = 200;
             while (i>0)
             {
                 E_Step(samples);
                 M_Step(samples);
+                i--;
             }
         }
         private void E_Step(IList<double> samples)
@@ -76,13 +88,9 @@ namespace ExpectationMaximization
                 for(int j = 0; j < count; j++)
                 {
                     average += Q[j, i] * samples[j];
+                    variance += Q[j, i] * (Math.Pow(samples[i] - p[i].Avr, 2));
                 }
                 p[i].Avr = average / k[i];
-
-                for(int j = 0; j < count; j++)
-                {
-                    variance += Q[j,i]*(Math.Pow(samples[i]-p[i].Avr,2));
-                }
                 p[i].Var = variance / k[i];
             }
         } 

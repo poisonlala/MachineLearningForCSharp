@@ -12,7 +12,7 @@ namespace ExpectationMaximization
         public double Var { get; set; }
 
         public double Probability { get; set; }
-        public GaussianParameter(double p,double a = 0, double v = 0.25)
+        public GaussianParameter(double p,double a = 0, double v = 10)
         {
             Avr = a;
             Var = v;
