@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bayes", "Bayes\Bayes.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpectationMaximization", "ExpectationMaximization\ExpectationMaximization.csproj", "{11C76924-2473-4418-B571-1C56EC266DA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBSCAN", "DBSCAN\DBSCAN.csproj", "{AC2D5A64-2082-4C09-A155-46B1466DF418}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{11C76924-2473-4418-B571-1C56EC266DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11C76924-2473-4418-B571-1C56EC266DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11C76924-2473-4418-B571-1C56EC266DA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC2D5A64-2082-4C09-A155-46B1466DF418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2D5A64-2082-4C09-A155-46B1466DF418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2D5A64-2082-4C09-A155-46B1466DF418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2D5A64-2082-4C09-A155-46B1466DF418}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
