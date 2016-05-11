@@ -10,7 +10,7 @@ namespace LogisticRegression
     {
         static void Main(string[] args)
         {
-            BinomialLR lr = new BinomialLR(0.001,0.008);
+            var lr = new LR(0.001,0.008);
             var samples = new double[,]
             {
                 {1,2}, {1,3 }, {1,4 }, {2,3 }, {2,4 }, {3,4 }, {3.2,3 },//+1
