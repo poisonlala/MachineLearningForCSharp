@@ -12,13 +12,14 @@ namespace ExpectationMaximization
         private double[,] Q;
         private int dim;
         private int count;
-        private static double MINIMUM = 0.00001;
+        private double MINIMUM;
         private GaussianParameter[] p;
         public GaussianParameter[] GaussianPara { get { return p; } }
 
-        public GMM(int n)
+        public GMM(int n, double threhold= 0.01)
         {
             dim = n;
+            MINIMUM = threhold;
             p = new GaussianParameter[n];
             for (int i = 0; i < n; i++)
                 p[i] = new GaussianParameter((double)1 / n);
@@ -33,7 +34,7 @@ namespace ExpectationMaximization
             double min = samples.Min();
             double max = samples.Max();
             double derta = (max - min) / (dim + 1);
-            for(int i = 0; i < dim; i++)
+            for (int i = 0; i < dim; i++)
             {
                 p[i].Avr += min + derta * (i + 1);
             }
@@ -43,27 +44,46 @@ namespace ExpectationMaximization
         {
             Init(samples);
             count = samples.Count;
-            Q = new double[count,dim];
-            int i = 200;
-            while (i>0)
+            Q = new double[count, dim];
+            double[] variance = new double[dim];
+            double[] averange = new double[dim];
+            do
             {
+                for (int i = 0; i < dim; i++)
+                {
+                    variance[i] = p[i].Var;
+                    averange[i] = p[i].Avr;
+                }
                 E_Step(samples);
                 M_Step(samples);
-                i--;
             }
+            while (!Converge(variance, averange));
+        }
+
+        private bool Converge(double[] variance, double[] averange)
+        {
+            double result = 0;
+            for (int i = 0; i < dim; i++)
+            {
+                if (p[i].Var != double.NaN)
+                    result += Math.Abs(variance[i] - p[i].Var);
+                if (p[i].Avr != double.NaN)
+                    result += Math.Pow(averange[i] - p[i].Avr, 2);
+            }
+            return result <= MINIMUM;
         }
         private void E_Step(IList<double> samples)
         {
-            for(int i = 0; i < count; i++)
+            for (int i = 0; i < count; i++)
             {
                 double sum = 0;
                 double[] cache = new double[dim];
-                for(int j = 0; j < dim; j++)
+                for (int j = 0; j < dim; j++)
                 {
                     cache[j] = p[j].Probability * GaussianDistribution(p[j], samples[i]);
                     sum += cache[j];
                 }
-                for(int j = 0; j < dim; j++)
+                for (int j = 0; j < dim; j++)
                 {
                     Q[i, j] = cache[j] / sum;
                 }
@@ -73,26 +93,26 @@ namespace ExpectationMaximization
         private void M_Step(IList<double> samples)
         {
             double[] k = new double[dim];
-            for(int i = 0; i < dim; i++)
+            for (int i = 0; i < dim; i++)
             {
-                for(int j = 0; j < count; j++)
+                for (int j = 0; j < count; j++)
                 {
                     k[i] += Q[j, i];
                 }
                 p[i].Probability = k[i] / count;
             }
 
-            for(int i = 0; i < dim; i++)
+            for (int i = 0; i < dim; i++)
             {
                 double average = 0, variance = 0;
-                for(int j = 0; j < count; j++)
+                for (int j = 0; j < count; j++)
                 {
                     average += Q[j, i] * samples[j];
-                    variance += Q[j, i] * (Math.Pow(samples[i] - p[i].Avr, 2));
+                    variance += Q[j, i] * (Math.Pow(samples[j] - p[i].Avr, 2));
                 }
                 p[i].Avr = average / k[i];
                 p[i].Var = variance / k[i];
             }
-        } 
+        }
     }
 }
