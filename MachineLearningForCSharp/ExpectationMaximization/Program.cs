@@ -10,10 +10,9 @@ namespace ExpectationMaximization
     {
         static void Main(string[] args)
         {
-            var model = new GMM(2);
-            var samples = new List<double>(new double[] { -12,-14,-14,-14,-14,-14,14,14,12,-15,15,14,14,14});
+            var model = new GMM(3,15);
+            var samples = new List<double>(new double[] {1,1,1,1,1,1,1,55,55,55,55,55,55,55});
             model.BuildGMM(samples);
-
         }
     }
 }

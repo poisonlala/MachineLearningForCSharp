@@ -65,9 +65,9 @@ namespace ExpectationMaximization
             double result = 0;
             for (int i = 0; i < dim; i++)
             {
-                if (p[i].Var != double.NaN)
+                if (!double.IsNaN(p[i].Var))
                     result += Math.Abs(variance[i] - p[i].Var);
-                if (p[i].Avr != double.NaN)
+                if (!double.IsNaN(p[i].Var))
                     result += Math.Pow(averange[i] - p[i].Avr, 2);
             }
             return result <= MINIMUM;
@@ -113,6 +113,16 @@ namespace ExpectationMaximization
                 p[i].Avr = average / k[i];
                 p[i].Var = variance / k[i];
             }
+        }
+
+        public double Predict(double num)
+        {
+            double result = 0;
+            foreach(var para in p)
+            {
+                result += para.Probability*GaussianDistribution(para, num);
+            }
+            return result;
         }
     }
 }
