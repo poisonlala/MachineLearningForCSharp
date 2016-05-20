@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExpectationMaximization
 {
-    class GMM
+    public sealed class GMM
     {
         private static double CONSTANT = 1 / (Math.Sqrt(2 * Math.PI));
         private double[,] Q;

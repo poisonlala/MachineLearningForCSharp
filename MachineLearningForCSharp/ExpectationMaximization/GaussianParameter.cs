@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExpectationMaximization
 {
-    class GaussianParameter
+    public sealed class GaussianParameter
     {
         public double Avr { get; set; }
         public double Var { get; set; }

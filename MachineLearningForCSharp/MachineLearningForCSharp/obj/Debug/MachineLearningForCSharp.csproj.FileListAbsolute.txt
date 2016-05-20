@@ -1,1 +1,7 @@
 c:\users\dl_lab\documents\visual studio 2015\Projects\MachineLearningForCSharp\MachineLearningForCSharp\bin\Debug\MachineLearningForCSharp.exe.config
+C:\Users\岩磊\Documents\GitHub\MachineLearningForCSharp\MachineLearningForCSharp\MachineLearningForCSharp\bin\Debug\MachineLearningForCSharp.exe.config
+C:\Users\岩磊\Documents\GitHub\MachineLearningForCSharp\MachineLearningForCSharp\MachineLearningForCSharp\bin\Debug\MachineLearningForCSharp.exe
+C:\Users\岩磊\Documents\GitHub\MachineLearningForCSharp\MachineLearningForCSharp\MachineLearningForCSharp\bin\Debug\MachineLearningForCSharp.pdb
+C:\Users\岩磊\Documents\GitHub\MachineLearningForCSharp\MachineLearningForCSharp\MachineLearningForCSharp\obj\Debug\MachineLearningForCSharp.csprojResolveAssemblyReference.cache
+C:\Users\岩磊\Documents\GitHub\MachineLearningForCSharp\MachineLearningForCSharp\MachineLearningForCSharp\obj\Debug\MachineLearningForCSharp.exe
+C:\Users\岩磊\Documents\GitHub\MachineLearningForCSharp\MachineLearningForCSharp\MachineLearningForCSharp\obj\Debug\MachineLearningForCSharp.pdb
