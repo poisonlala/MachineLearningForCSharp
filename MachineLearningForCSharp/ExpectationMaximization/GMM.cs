@@ -24,7 +24,7 @@ namespace ExpectationMaximization
             for (int i = 0; i < n; i++)
                 p[i] = new GaussianParameter((double)1 / n);
         }
-        public GMM(int[,] para, double threhold = 0.01)
+        public GMM(double[,] para, double threhold = 0.01)
         {
             dim = para.GetLength(1);
             MINIMUM = threhold;
