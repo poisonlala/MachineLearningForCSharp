@@ -16,13 +16,21 @@ namespace ExpectationMaximization
         private GaussianParameter[] p;
         public GaussianParameter[] GaussianPara { get { return p; } }
 
-        public GMM(int n, double threhold= 0.01)
+        public GMM(int n, double threhold = 0.01)
         {
             dim = n;
             MINIMUM = threhold;
             p = new GaussianParameter[n];
             for (int i = 0; i < n; i++)
                 p[i] = new GaussianParameter((double)1 / n);
+        }
+        public GMM(double[,] para, double threhold = 0.01)
+        {
+            dim = para.GetLength(1);
+            MINIMUM = threhold;
+            p = new GaussianParameter[dim];
+            for (int i = 0; i < dim; i++)
+                p[i] = new GaussianParameter(para[0,i],para[1,i],para[2,i]);
         }
         private double GaussianDistribution(GaussianParameter p, double x)
         {
@@ -118,9 +126,9 @@ namespace ExpectationMaximization
         public double Predict(double num)
         {
             double result = 0;
-            foreach(var para in p)
+            foreach (var para in p)
             {
-                result += para.Probability*GaussianDistribution(para, num);
+                result += para.Probability * GaussianDistribution(para, num);
             }
             return result;
         }
