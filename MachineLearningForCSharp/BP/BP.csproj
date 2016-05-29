@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="ActivationFunctionEnum.cs" />
     <Compile Include="ActivationFunction\ActivationFunction.cs" />
+    <Compile Include="ActivationFunction\ReLU.cs" />
     <Compile Include="ActivationFunction\Sigmoid.cs" />
+    <Compile Include="ActivationFunction\Tanh.cs" />
     <Compile Include="BP.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

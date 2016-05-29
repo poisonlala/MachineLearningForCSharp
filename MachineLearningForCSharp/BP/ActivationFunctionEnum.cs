@@ -8,7 +8,8 @@ namespace BP
 {
     public enum ActivationFunctionEnum
     {
-        Linear,
-        Sigmoid
+        Sigmoid,
+        ReLU,
+        Tanh
     }
 }
