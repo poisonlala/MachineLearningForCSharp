@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DBSCAN
 {
-    class DBSCAN
+    public sealed class DBSCAN
     {
         private List<Cluster> clusters;
         protected List<PointD> points;

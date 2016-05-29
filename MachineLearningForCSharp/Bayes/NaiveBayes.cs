@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bayes
 {
-    class NaiveBayes
+    public sealed class NaiveBayes
     {
         private Dictionary<int, Dictionary<int, double>>[] _matrix;
         private Dictionary<int, Dictionary<int, int>>[] _fmatrix;

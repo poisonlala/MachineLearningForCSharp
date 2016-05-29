@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KNN
 {
-    class Program
+    public sealed class Program
     {
         static void Main(string[] args)
         {

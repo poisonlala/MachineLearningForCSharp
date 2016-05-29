@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HiddenMarkovModel
 {
-    class HMM
+    public sealed class HMM
     {
         double[,] A;
         double[,] B;

@@ -11,7 +11,7 @@ namespace BP
         static void Main(string[] args)
         {
             double[,] input = new double[,] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } };
-            int[,] label = new int[,] { {0}, { 1 }, { 1 }, { 0 } };
+            int[,] label = new int[,] { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } };
             int[] layers = new int[] { 5 };
             BP bp = new BP(input, label, layers);
             bp.Train();

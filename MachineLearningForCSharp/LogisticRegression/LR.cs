@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogisticRegression
 {
-    class LR
+    public sealed class LR
     {
         private static double RATE;
         private static double THRESHOLD;

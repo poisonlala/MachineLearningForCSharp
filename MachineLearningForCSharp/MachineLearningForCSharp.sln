@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineLearningForCSharp", "MachineLearningForCSharp\MachineLearningForCSharp.csproj", "{354F098B-46BC-4B97-8E66-F3307AEB48E4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perceptron", "Perceptron\Perceptron.csproj", "{6CAB6383-2FE2-4C81-8C93-47FD2EF92934}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KNN", "KNN\KNN.csproj", "{D4CF078C-DA11-4174-9C42-2480D206C308}"
@@ -27,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{354F098B-46BC-4B97-8E66-F3307AEB48E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{354F098B-46BC-4B97-8E66-F3307AEB48E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{354F098B-46BC-4B97-8E66-F3307AEB48E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{354F098B-46BC-4B97-8E66-F3307AEB48E4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6CAB6383-2FE2-4C81-8C93-47FD2EF92934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6CAB6383-2FE2-4C81-8C93-47FD2EF92934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CAB6383-2FE2-4C81-8C93-47FD2EF92934}.Release|Any CPU.ActiveCfg = Release|Any CPU

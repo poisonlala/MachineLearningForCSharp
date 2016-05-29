@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DBSCAN
 {
-    class Cluster
+    public sealed class Cluster
     {
         private PointD center;
         private double sumX;
