@@ -62,7 +62,7 @@ namespace BP
                 W[0][j] = new double[X[0].Length];
                 for (int k = 0; k < X[0].Length; k++)
                 {
-                    W[0][j][k] = r.NextDouble()/10 - 0.05;
+                    W[0][j][k] = r.NextDouble() / 10 - 0.05;
                 }
             }
             for (int i = 1; i < Levels; i++)
@@ -336,6 +336,6 @@ namespace BP
                 }
             }
         }
-        
+
     }
 }

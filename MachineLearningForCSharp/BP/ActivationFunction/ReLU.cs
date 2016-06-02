@@ -10,12 +10,12 @@ namespace BP.ActivationFunction
     {
         public double CalculateY(double x)
         {
-            return Math.Max(0, x);
+            return x > 0 ? x : 0.01 * x;
         }
 
         public double CalculateDeltaY(double x)
         {
-            return x <= 0 ? 0 : 1;
+            return x <= 0 ? 0.01 : 1;
         }
     }
 }
