@@ -8,67 +8,39 @@ namespace DBSCAN
 {
     public sealed class Cluster
     {
-        private PointD center;
-        private double sumX;
-        private double sumY;
-        private List<PointD> cluster;
+        private double[] center;
+        private double[] sum;
+        private List<double[]> cluster;
 
-        public List<PointD> Points => cluster;
+        public List<double[]> Points => cluster;
 
         public Cluster()
         {
-            center = new PointD(0, 0);
-            cluster = new List<PointD>();
-            sumX = 0;
-            sumY = 0;
         }
 
-        public Cluster(PointD p) : this()
+        public Cluster(double[] p) : this()
         {
+            center = new double[p.Length];
+            sum = new double[p.Length];
+            cluster = new List<double[]>();
             Add(p);
         }
 
-        public void Add(PointD p)
+        public void Add(double[] p)
         {
             cluster.Add(p);
-            sumX += p.X;
-            sumY += p.Y;
-            center.X = sumX / cluster.Count;
-            center.Y = sumY / cluster.Count;
-        }
-
-        public void Merge(Cluster c)
-        {
-            foreach (PointD p in c.cluster)
+            for(int i=0; i < p.Length; i++)
             {
-                Add(p);
+                sum[i] += p[i];
+            }
+            for(int i = 0; i < p.Length; i++)
+            {
+                center[i] = sum[i] / cluster.Count;
             }
         }
 
         public int Count => cluster.Count;
 
-        public PointD Center => center;
-
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-
-            PointAppend(sb, center);
-            sb.AppendLine();
-            foreach (var p in cluster)
-            {
-                PointAppend(sb, p);
-            }
-
-            return sb.ToString();
-        }
-
-        private void PointAppend(StringBuilder sb, PointD p)
-        {
-            sb.Append(p.X);
-            sb.Append(",");
-            sb.Append(p.Y);
-            sb.AppendLine();
-        }
+        public double[] Center => center;
     }
 }

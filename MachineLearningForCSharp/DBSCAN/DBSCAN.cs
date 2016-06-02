@@ -11,7 +11,7 @@ namespace DBSCAN
     public sealed class DBSCAN
     {
         private List<Cluster> clusters;
-        protected List<PointD> points;
+        protected List<double[]> points;
         private BitArray flag;
         private readonly int MIN_POINTS = 0;
         private readonly double MIN_DISTANCE = 0;
@@ -25,7 +25,7 @@ namespace DBSCAN
             MIN_POINTS = minPoints;
             MIN_DISTANCE = minDistance;
         }
-        public List<Cluster> Cluster(List<PointD> pts)
+        public List<Cluster> Cluster(List<double[]> pts)
         {
             points = pts;
             flag = new BitArray(points.Count);
@@ -50,7 +50,7 @@ namespace DBSCAN
 
         private void ExpandNodes(Cluster c, int index)
         {
-            PointD p = points[index];
+            double[] p = points[index];
             for (int i = 0; i < flag.Count; i++)
             {
                 if (!flag[i] && Distance(p, points[i]) <= MIN_DISTANCE)
@@ -62,9 +62,14 @@ namespace DBSCAN
             }
         }
 
-        private double Distance(PointD center, PointD p)
+        private double Distance(double[] center, double[] p)
         {
-            return Math.Sqrt(Math.Pow(center.X - p.X, 2) + Math.Pow(center.Y - p.Y, 2));
+            double sum = 0;
+            for(int i = 0; i < center.Length; i++)
+            {
+                sum += Math.Pow(center[i] - p[i], 2);
+            }
+            return Math.Sqrt(sum);
         }
 
         private void Filter()

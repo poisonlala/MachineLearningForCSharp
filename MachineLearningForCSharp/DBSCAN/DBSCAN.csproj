@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Cluster.cs" />
     <Compile Include="DBSCAN.cs" />
-    <Compile Include="PointD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
